@@ -1,0 +1,114 @@
+﻿/*@!Encoding:65001*/
+/*
+  Title: ECU 2 Speed Script file
+  Author: Mohamed Abdel Hamid
+
+  Purpose:
+  This CAPL script simulates the behavior of an ECU (Electronic Control Unit) 
+  for controlling the vehicle's speed based on accelerator input (ACC). The script 
+  receives signals from a message object MSG_ACC, processes the acceleration signal, 
+  and adjusts the speed accordingly. The updated speed is sent via the message object 
+  MSG_SPEED and stored in a system variable SYS_SPEED.
+
+  Workflow:
+  - Upon receiving an accelerator message (MSG_ACC), the script checks the value of the 
+    accelerator signal (SIG_ACC).
+    - If the value is 1, it increases the vehicle's speed smoothly up to a maximum of 250.
+    - If the value is 0, it decreases the speed until it reaches a minimum of 0.
+  - During each change, the script updates both the system variable SYS_SPEED and sends the new speed 
+    via the MSG_SPEED message.
+  - All speed changes are logged via write() for debugging purposes.
+*/
+includes
+{
+  
+}
+variables
+{
+  // Message object to send speed information
+  message MSG_SPEED speed;
+  
+  // Variable to hold the current speed value
+  int speed_val;
+  
+  // Variable to store the received accelerator signal
+  int acc_received;
+  
+  // Variable used to calculate the target speed based on acceleration or deceleration
+  int endPoint;
+}
+
+on start {
+  // Initialize the speed to 0 at the start of the script
+  speed_val = 0;
+
+  // Set the system variable SYS_SPEED to 0
+  @sysvar::SYS_SPEED = 0;
+
+  // Output a message to indicate that ECU is ready
+  write("ECU 2 SPEED READY");
+}
+
+on message MSG_ACC {
+  // Store the received accelerator signal in acc_received
+  acc_received = this.SIG_ACC;
+
+  // Output a message showing the received ACC value
+  write("RECEIVE ACC %d", this.SIG_ACC);
+
+  // If the accelerator signal is 1 (acceleration)
+  if (acc_received == 1) {
+    // Calculate the target speed by adding 11 to the current speed
+    endPoint = speed_val + 10;
+
+    // If the target speed exceeds 255, cap it at 255
+    if (endPoint > 250)
+      endPoint = 250;
+
+    // Gradually increase the speed from current value to the target value
+    for (; speed_val <= endPoint; speed_val++) {
+      // Set the speed signal in the message
+      speed.SIG_SPEED = speed_val;
+
+      // Update the system variable SYS_SPEED with the new speed
+      @sysvar::SYS_SPEED = speed_val;
+
+      // Output the updated speed to the CAN bus
+      output(speed);
+
+      // Log the sent speed value for debugging
+      write("SEND SPEED %d", speed_val);
+    }
+
+    // Decrease speed_val by 1 to match the actual final speed
+    speed_val--;
+
+  // If the accelerator signal is 0 (deceleration)
+  } else if (acc_received == 0) {
+    // Calculate the target speed by subtracting 10 from the current speed
+    endPoint = speed_val - 10;
+
+    // If the target speed falls below 0, set it to 0
+    if (endPoint < 0)
+      endPoint = 0;
+
+    // Gradually decrease the speed from current value to the target value
+    for (; speed_val >= endPoint; speed_val--) {
+      // Set the speed signal in the message
+      speed.SIG_SPEED = speed_val;
+
+      // Update the system variable SYS_SPEED with the new speed
+      @sysvar::SYS_SPEED = speed_val;
+
+      // Output the updated speed to the CAN bus
+      output(speed);
+
+      // Log the sent speed value for debugging
+      write("SEND SPEED %d", speed_val);
+    }
+
+    // Increase speed_val by 1 to match the actual final speed
+    speed_val++;
+  }
+}
+

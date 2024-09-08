@@ -1,0 +1,63 @@
+﻿/*@!Encoding:65001*/
+/* 
+  Title: ECU 1 ACC Script file
+  Author: Mohamed Abdel Hamid
+
+  Purpose:
+  This script simulates the behavior of an ECU for sending accelerator signals periodically. 
+  The accelerator signal is read from a system variable (SYS_ACC) and sent via the message object MSG_ACC.
+  The timer is used to repeatedly trigger the transmission of the accelerator signal at a regular interval.
+  
+  Workflow:
+  1. When the ECU starts (on start event), a message is printed indicating that the ECU is ready.
+  2. A timer (`t`) is started with a timeout interval of 1000 milliseconds (1 second).
+  3. Every time the timer expires:
+     - The accelerator signal value is read from the system variable `SYS_ACC`.
+     - The value is assigned to the message object `MSG_ACC`.
+     - The accelerator message is sent via the CAN bus.
+     - The timer is reset to trigger again after the same interval (1 second).
+*/
+
+includes
+{
+}
+
+variables
+{
+  // Constant representing the timeout interval in milliseconds
+  const int timeout = 1000; 
+  
+  // Timer object used to trigger the periodic sending of the ACC signal
+  mstimer t;
+
+  // Message object to send ACC information
+  message MSG_ACC acc;
+
+  // Variable to store the current accelerator signal value
+  int acc_val;
+}
+
+on start {
+  // Print a message indicating that ECU 1 is ready for ACC operation
+  write("ECU 1 ACC READY");
+
+  // Start the timer with the defined timeout interval
+  setTimer(t, timeout);
+}
+
+on timer t {
+  // Read the current accelerator signal value from the system variable SYS_ACC
+  acc_val = @sysvar::SYS_ACC;
+
+  // Assign the read value to the SIG_ACC signal in the message object
+  acc.SIG_ACC = acc_val;
+
+  // Print the value of the ACC signal being sent for debugging purposes
+  write("SEND ACC %d", acc.SIG_ACC);
+
+  // Send the ACC message over the CAN bus
+  output(acc);
+
+  // Reset the timer to trigger again after the same timeout interval
+  setTimer(t, timeout);
+}

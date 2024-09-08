@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="Panel1">
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xaf1d39ace6cd0e44f8eb821e63c1fcd478ce" ControlName="LCD Control 1">
+      <Property Name="Name">Xaf1d39ace6cd0e44f8eb821e63c1fcd478ce</Property>
+      <Property Name="Size">164, 50</Property>
+      <Property Name="Location">136, 269</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="NumberIntDigits">3</Property>
+      <Property Name="SymbolConfiguration">8;16;;;;SYS_SPEED;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X55bb3e6be1871e4d84eb4f0ed62a8e77bae1" ControlName="Analog Gauge 1">
+      <Property Name="Name">X55bb3e6be1871e4d84eb4f0ed62a8e77bae1</Property>
+      <Property Name="Size">440, 300</Property>
+      <Property Name="Location">0, 19</Property>
+      <Property Name="ScaleMin">0</Property>
+      <Property Name="ScaleMax">250</Property>
+      <Property Name="LowerRangeLimit">0</Property>
+      <Property Name="UpperRangeLimit">250</Property>
+      <Property Name="MinColor">255, 255, 49, 49</Property>
+      <Property Name="MidColor">255, 255, 49, 49</Property>
+      <Property Name="MaxColor">255, 255, 49, 49</Property>
+      <Property Name="ScaleAngle">250</Property>
+      <Property Name="BackgroundColor">Transparent</Property>
+      <Property Name="ArrowColor">Red</Property>
+      <Property Name="CenterColor">AliceBlue</Property>
+      <Property Name="LegendText"></Property>
+      <Property Name="LegendTextColor">Transparent</Property>
+      <Property Name="LegendTextFont">Microsoft Sans Serif, 8.25pt</Property>
+      <Property Name="LegendColor">White</Property>
+      <Property Name="GaugeFont">Vivaldi, 16pt</Property>
+      <Property Name="MainTicksNumber">12</Property>
+      <Property Name="TicksColor">Maroon</Property>
+      <Property Name="CurrentPosition">0</Property>
+      <Property Name="LengthMainTicks">18</Property>
+      <Property Name="IsFrame">False</Property>
+      <Property Name="IsMargin">False</Property>
+      <Property Name="ScaleMargin">0</Property>
+      <Property Name="SymbolConfiguration">8;16;;;;SYS_SPEED;1;;;-1;;;Value;;;0</Property>
+      <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTE3LjMuOTEuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+        <Argument>0</Argument>
+        <Argument>250</Argument>
+        <Argument>0</Argument>
+        <Argument>0</Argument>
+        <Argument>250</Argument>
+      </Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xa1259b4febb23e4a27e91a4e9ed7b88b78c7" ControlName="Switch / Indicator 1">
+      <Property Name="Name">Xa1259b4febb23e4a27e91a4e9ed7b88b78c7</Property>
+      <Property Name="Size">61, 80</Property>
+      <Property Name="Location">548, 166</Property>
+      <Property Name="SymbolConfiguration">8;16;;;;SYS_ACC;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TransparentColor">AliceBlue</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">700, 358</Property>
+    <Property Name="Location">0, 0</Property>
+    <Property Name="BackColor">255, 9, 51, 103</Property>
+    <Property Name="ImageFileName">C:\Users\mh_sm\Dropbox\PC\Desktop\360_F_262047156_Hy2QtNB52oR2DETOAcjIjB3FhaqCBjUI.jpg</Property>
+    <Property Name="IsProportional">True</Property>
+  </Object>
+</Panel>
