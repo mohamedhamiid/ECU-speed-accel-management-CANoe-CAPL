@@ -22,15 +22,16 @@ The simulation operates on a virtual CAN bus that is tested using XL CAN Control
 ![Database](https://github.com/user-attachments/assets/77e3a8eb-69ef-4236-a60b-0a71050588b3)
 
 ### 2. CAPL Scripts
+- **`ECU1_ACC.capl`**: Script for the ACC ECU. Manages the acceleration signal by reading from the system variable and periodically sending the signal.
+- **`ECU2_SPEED.capl`**: Script for the Speed ECU. Simulates ECU speed control by adjusting speed values based on accelerator input and sending the updated speed values periodically.
 
-- **`ECU1_ACC.capl`**: Script for the Speed ECU. Simulates ECU speed control by adjusting speed values based on accelerator input and sending the updated speed values periodically.
-- **`ECU2_SPEED.capl`**: Script for the ACC ECU. Manages the acceleration signal by reading from the system variable and periodically sending the signal.
 
 ### 3. Custom Panel
 
 - **Description**: A panel created in CANoe that provides user interface elements for controlling the ECUs.
 - **Features**:
-  - **Switch**: Toggles acceleration on and off for the ACC ECU.
-  - **Speed Gauge**: Displays and updates the current speed for the Speed ECU in real-time.
+  - **Switch**: Toggles acceleration on and off for the ACC ECU and is mapped to the ACC environment variable which is read by ECU 1 periodically and sent through CAN.
+  - **Speed Gauge**: Displays the speed environment variable value that is updated by ECU2 in real-time.
+  - **Segments Display**: Displays the speed environment variable value that is updated by ECU2 in real-time.
 <br></br>
 ![Panel](https://github.com/user-attachments/assets/29491738-ac6d-47b1-b798-1e51acadf501)
