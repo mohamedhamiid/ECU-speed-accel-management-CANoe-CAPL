@@ -6,7 +6,11 @@ This project involves creating a simulation system for ECU speed and acceleratio
 1. **ACC ECU**: Manages the accelerator control.
 2. **Speed ECU**: Controls and monitors the speed.
 
-The simulation operates on a virtual CAN bus and includes a CANoe database, CAPL scripts for ECU simulation, and a custom panel with interactive controls. The panel features a switch to toggle acceleration and a speed gauge that dynamically updates based on the speed value.
+The simulation operates on a virtual CAN bus that is tested using XL CAN Control before starting and includes a CANoe database, CAPL scripts for ECU simulation, and a custom panel with interactive controls. The panel features a switch to toggle acceleration and a speed gauge that dynamically updates based on the speed value.
+#### XL Control 
+![XL driver](https://github.com/user-attachments/assets/d3224578-af63-4d3a-90ff-1589a2035a1c)
+#### Network Components
+![System](https://github.com/user-attachments/assets/fec755ae-9f4a-442f-9862-955be9f2b47c)
 
 ## Components
 
@@ -14,6 +18,7 @@ The simulation operates on a virtual CAN bus and includes a CANoe database, CAPL
 
 - **Description**: Contains the database configuration for CANoe, including message definitions, signals, and network configurations for both ECUs.
 - **Files**: (List specific files here, e.g., `ecu_database.dbc`)
+![Database](https://github.com/user-attachments/assets/77e3a8eb-69ef-4236-a60b-0a71050588b3)
 
 ### 2. CAPL Scripts
 
@@ -26,11 +31,4 @@ The simulation operates on a virtual CAN bus and includes a CANoe database, CAPL
 - **Features**:
   - **Switch**: Toggles acceleration on and off for the ACC ECU.
   - **Speed Gauge**: Displays and updates the current speed for the Speed ECU in real-time.
-
-## System Configuration
-
-- **ECUs**: The system simulates two ECUs:
-  - **ACC ECU**: Controls the acceleration.
-  - **Speed ECU**: Manages and reports the speed.
-
-- **Simulation Mode**: The system is configured to operate in simulation mode using a virtual CAN bus. This setup allows for testing and validation of ECU interactions in a controlled virtual environment.
+![Panel](https://github.com/user-attachments/assets/29491738-ac6d-47b1-b798-1e51acadf501)
