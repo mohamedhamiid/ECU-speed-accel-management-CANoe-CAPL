@@ -35,3 +35,7 @@ The simulation operates on a virtual CAN bus that is tested using XL CAN Control
   - **Segments Display**: Displays the speed environment variable value that is updated by ECU2 in real-time.
 <br></br>
 ![Panel](https://github.com/user-attachments/assets/29491738-ac6d-47b1-b798-1e51acadf501)
+
+## Simulation
+https://github.com/user-attachments/assets/50a1eccb-10ca-4b56-b70a-e4e8d797daf7
+
